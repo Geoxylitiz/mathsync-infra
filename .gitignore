@@ -8,7 +8,7 @@ crash.log
 *.tfvars
 
 # Lock file
-terraform.lock.hcl
+#.terraform.lock.hcl
 
 # IDE
 .vscode/
