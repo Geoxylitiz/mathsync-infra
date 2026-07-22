@@ -10,14 +10,14 @@ The infrastructure is split into two logical layers:
 
 ```mermaid
 graph TD
-    subgraph AWS VPC (10.0.0.0/16)
-        subgraph Public Subnets
+    subgraph VPC ["AWS VPC (10.0.0.0/16)"]
+        subgraph Public ["Public Subnets"]
             IGW[Internet Gateway]
             NAT[NAT Gateway]
             ALB[Application Load Balancer]
         end
 
-        subgraph Private Subnets
+        subgraph Private ["Private Subnets"]
             EKS[EKS Cluster v1.32]
             NG[Managed Node Groups: t3.small]
         end
@@ -27,7 +27,7 @@ graph TD
     NG -->|Internet Egress| NAT
     NAT --> IGW
     
-    subgraph EKS Addons
+    subgraph Addons ["EKS Addons"]
         ArgoCD[ArgoCD GitOps]
         Prom[kube-prometheus-stack]
     end
